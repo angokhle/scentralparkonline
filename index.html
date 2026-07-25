@@ -1,0 +1,495 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>The Scentral Park</title>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@500;600&family=Work+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #F1EEDF; --card: #FCFAF2; --ink: #24331F; --ink-soft: #4B5A44;
+    --mud: #A85D3B; --water: #3E7C74; --sand: #C99A3E; --line: #DAD5C1;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { background: var(--bg); color: var(--ink); font-family: 'Work Sans', sans-serif; }
+  img, video { max-width: 100%; display: block; object-fit: cover; }
+  a { color: inherit; text-decoration: none; }
+  h1,h2,h3 { font-family: 'Fraunces', serif; font-weight: 600; }
+  .wrap { max-width: 1120px; margin: 0 auto; padding: 0 24px; }
+  .eyebrow { font-size: 13px; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; margin-bottom: 10px; display: block; }
+  .btn { font-weight: 600; font-size: 15px; border-radius: 999px; padding: 12px 24px; display: inline-flex; align-items: center; gap: 8px; }
+  .btn-primary { background: var(--ink); color: var(--bg); }
+  .btn-outline { border: 1.5px solid var(--ink); color: var(--ink); }
+
+  header { position: sticky; top: 0; z-index: 50; background: rgba(241,238,223,.94); backdrop-filter: blur(6px); border-bottom: 1px solid var(--line); }
+  .header-inner { max-width: 1120px; margin: 0 auto; box-sizing: border-box; display: flex; align-items: center; justify-content: space-between; padding: 14px 24px; gap: 16px; flex-wrap: wrap; }
+  .logo { display: flex; align-items: center; gap: 8px; }
+  .logo-mark { width: 30px; height: 30px; border-radius: 50%; background: var(--ink); display: flex; align-items: center; justify-content: center; color: var(--bg); font-family: 'Fraunces',serif; font-weight: 600; font-size: 14px; }
+  .logo-name { font-family: 'Fraunces', serif; font-weight: 600; font-size: 17px; }
+  nav { display: flex; gap: 18px; flex-wrap: wrap; }
+  nav a, nav span.grp { font-size: 13.5px; color: var(--ink-soft); cursor: pointer; }
+  .grp:after { content: " ▾"; font-size: 10px; }
+  .header-social { display: flex; align-items: center; gap: 10px; }
+  .header-social a { color: var(--ink-soft); display: flex; }
+  .header-social svg { width: 15px; height: 15px; }
+  .header-cta-group { display: flex; align-items: center; gap: 14px; }
+  @media (max-width: 480px) { .header-social { display: none; } }
+  @media (max-width: 860px) { nav { display: none; } }
+
+  /* hero */
+  .hero { position: relative; min-height: 560px; display: flex; align-items: center; overflow: hidden; }
+  .hero video { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+  .hero-scrim { position: absolute; inset: 0; background: linear-gradient(180deg, rgba(36,51,31,.55) 0%, rgba(36,51,31,.35) 45%, rgba(36,51,31,.75) 100%); }
+  .hero-content { position: relative; max-width: 1120px; margin: 0 auto; padding: 60px 24px 40px; width: 100%; text-align: center; }
+  .hero h1 { font-size: clamp(30px,5vw,52px); line-height: 1.1; color: var(--bg); margin: 0 auto 16px; max-width: 720px; }
+  .hero p { font-size: 17px; color: #E4E1D2; max-width: 480px; margin: 0 auto 26px; line-height: 1.5; }
+  .hero-actions { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; margin-bottom: 40px; }
+
+  /* avatar row */
+  .avatar-row { display: flex; justify-content: center; gap: 28px; flex-wrap: wrap; position: relative; z-index: 2; }
+  .avatar-item { text-align: center; width: 130px; }
+  .avatar-photo { width: 76px; height: 76px; border-radius: 50%; overflow: hidden; margin: 0 auto 10px; border: 2px solid rgba(252,250,242,.6); }
+  .avatar-photo img { width: 100%; height: 100%; }
+  .avatar-item p { font-size: 12.5px; color: var(--bg); line-height: 1.35; }
+
+  /* full-bleed statement */
+  .statement { position: relative; min-height: 340px; display: flex; align-items: center; justify-content: center; overflow: hidden; }
+  .statement video { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+  .statement .scrim { position: absolute; inset: 0; background: rgba(36,51,31,.6); }
+  .statement .txt { position: relative; z-index: 2; max-width: 640px; text-align: center; padding: 40px 24px; }
+  .statement h2 { font-size: clamp(24px,3.2vw,34px); color: var(--bg); line-height: 1.25; }
+
+  /* feature section: text + media */
+  .feature { padding: 72px 24px; }
+  .feature-inner { max-width: 1120px; margin: 0 auto; display: grid; grid-template-columns: .9fr 1.1fr; gap: 48px; align-items: center; }
+  .feature-inner.reverse { direction: rtl; }
+  .feature-inner.reverse > * { direction: ltr; }
+  .feature h2 { font-size: clamp(24px,3vw,32px); margin-bottom: 14px; }
+  .feature p { font-size: 15.5px; color: var(--ink-soft); line-height: 1.6; max-width: 420px; }
+  .feature-media { border-radius: 20px; overflow: hidden; }
+  .feature-media img, .feature-media video { width: 100%; height: 320px; }
+  @media (max-width: 860px) { .feature-inner, .feature-inner.reverse { grid-template-columns: 1fr; direction: ltr; } }
+
+  /* zones triptych */
+  .zones { background: var(--card); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); padding: 72px 24px; }
+  .zones-head { max-width: 1120px; margin: 0 auto 36px; text-align: center; }
+  .zones-head h2 { font-size: clamp(24px,3vw,32px); }
+  .zones-grid { max-width: 1120px; margin: 0 auto; display: grid; grid-template-columns: repeat(3,1fr); gap: 20px; }
+  .zone-card { border-radius: 18px; overflow: hidden; background: var(--bg); }
+  .zone-media { height: 200px; overflow: hidden; }
+  .zone-media img, .zone-media video { width: 100%; height: 100%; }
+  .zone-body { padding: 18px 20px; }
+  .zone-body h3 { font-size: 16px; margin-bottom: 4px; }
+  .zone-body p { font-size: 13px; color: var(--ink-soft); }
+  @media (max-width: 860px) { .zones-grid { grid-template-columns: 1fr; } }
+
+  /* two-card row (boarding + grooming) */
+  .duo { padding: 72px 24px; }
+  .duo-head { max-width: 1120px; margin: 0 auto 32px; text-align: center; }
+  .duo-head h2 { font-size: clamp(24px,3vw,32px); }
+  .duo-grid { max-width: 1120px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+  .duo-card { border-radius: 20px; overflow: hidden; position: relative; height: 320px; }
+  .duo-card img, .duo-card video { width: 100%; height: 100%; }
+  .duo-card .duo-label { position: absolute; bottom: 0; left: 0; right: 0; padding: 20px; background: linear-gradient(0deg, rgba(36,51,31,.85), transparent); }
+  .duo-card .duo-label h3 { color: var(--bg); font-size: 19px; }
+  .duo-card .duo-label p { color: #E4E1D2; font-size: 13px; margin-top: 2px; }
+  @media (max-width: 860px) { .duo-grid { grid-template-columns: 1fr; } }
+
+  /* why us */
+  .whyus { position: relative; min-height: 420px; display: flex; align-items: center; overflow: hidden; }
+  .whyus img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+  .whyus .scrim { position: absolute; inset: 0; background: rgba(36,51,31,.7); }
+  .whyus-content { position: relative; z-index: 2; max-width: 640px; margin: 0 auto; text-align: center; padding: 60px 24px; }
+  .whyus-content .eyebrow { color: var(--sand); }
+  .whyus-content h2 { color: var(--bg); font-size: clamp(24px,3vw,32px); margin-bottom: 16px; }
+  .whyus-content p { color: #E4E1D2; font-size: 15.5px; line-height: 1.6; margin-bottom: 20px; }
+  .whyus-content .sign { color: var(--sand); font-family: 'Fraunces', serif; font-size: 16px; }
+
+  /* closing CTA */
+  .closing { padding: 72px 24px; text-align: center; }
+  .closing-photos { display: flex; justify-content: center; gap: 10px; margin-bottom: 28px; flex-wrap: wrap; }
+  .closing-photos img { width: 64px; height: 64px; border-radius: 50%; border: 2px solid var(--card); }
+  .closing h2 { font-size: clamp(24px,3vw,32px); margin-bottom: 10px; }
+  .closing p { font-size: 15.5px; color: var(--ink-soft); margin-bottom: 24px; }
+
+  /* how it works */
+  .hiw { background: var(--card); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); padding: 56px 24px; }
+  .hiw-inner { max-width: 1120px; margin: 0 auto; display: grid; grid-template-columns: repeat(3,1fr); gap: 20px; text-align: center; }
+  .hiw-step .num { width: 32px; height: 32px; border-radius: 50%; background: var(--ink); color: var(--bg); display: flex; align-items: center; justify-content: center; font-weight: 600; font-size: 14px; margin: 0 auto 10px; }
+  .hiw-step h3 { font-size: 15px; margin-bottom: 4px; }
+  .hiw-step p { font-size: 12.5px; color: var(--ink-soft); }
+  @media (max-width: 860px) { .hiw-inner { grid-template-columns: 1fr; } }
+
+  /* gallery grid */
+  .gallery { padding: 72px 24px; }
+  .gallery-head { max-width: 1120px; margin: 0 auto 28px; }
+  .gallery-head h2 { font-size: clamp(24px,3vw,32px); }
+  .gallery-grid { max-width: 1120px; margin: 0 auto; display: grid; grid-template-columns: repeat(6,1fr); gap: 10px; }
+  .gallery-grid img { border-radius: 12px; height: 110px; width: 100%; }
+  @media (max-width: 860px) { .gallery-grid { grid-template-columns: repeat(3,1fr); } }
+
+  /* trust strip */
+  .trust { background: var(--card); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+  .trust-inner { max-width: 1120px; margin: 0 auto; display: flex; gap: 28px; flex-wrap: wrap; justify-content: center; padding: 18px 24px; }
+  .trust-inner span { font-size: 13.5px; color: var(--ink-soft); display: flex; align-items: center; gap: 8px; }
+  .dot { width: 5px; height: 5px; border-radius: 50%; background: var(--mud); }
+
+  /* faq */
+  .faq { padding: 64px 24px; }
+  .faq-inner { max-width: 720px; margin: 0 auto; }
+  .faq-item { border-top: 1px solid var(--line); }
+  .faq-item summary { font-weight: 600; font-size: 15px; cursor: pointer; list-style: none; padding: 16px 0; }
+  .faq-item summary::-webkit-details-marker { display: none; }
+  .faq-item p { font-size: 13.5px; color: var(--ink-soft); padding-bottom: 16px; line-height: 1.5; }
+
+  /* location teaser */
+  .loc-teaser { max-width: 1120px; margin: 0 auto 40px; padding: 40px 24px; display: flex; justify-content: space-between; align-items: center; gap: 20px; flex-wrap: wrap; background: var(--ink); border-radius: 24px; color: var(--bg); }
+  .loc-teaser h3 { color: var(--bg); font-size: 20px; margin-bottom: 4px; }
+  .loc-teaser p { color: #C9C7B8; font-size: 13.5px; }
+  /* testimonials */
+  .testimonials { background: var(--card); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); padding: 64px 24px; }
+  .testimonials-inner { max-width: 1120px; margin: 0 auto; }
+  .testimonials-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 20px; margin-top: 28px; }
+  .t-card { background: var(--bg); border-radius: 16px; padding: 20px; }
+  .t-card p.quote { font-size: 14px; color: var(--ink-soft); line-height: 1.55; font-style: italic; margin-bottom: 12px; }
+  .t-card p.name { font-size: 13px; font-weight: 600; color: var(--ink); }
+  @media (max-width: 860px) { .testimonials-grid { grid-template-columns: 1fr; } }
+
+  footer { border-top: 1px solid var(--line); padding: 40px 24px 28px; }
+  .footer-inner { max-width: 1120px; margin: 0 auto; display: flex; justify-content: space-between; flex-wrap: wrap; gap: 24px; }
+  .footer-col h4 { font-size: 12px; font-weight: 600; letter-spacing: .06em; text-transform: uppercase; color: var(--mud); margin-bottom: 10px; }
+  .footer-col a, .footer-col span { display: block; font-size: 13.5px; color: var(--ink-soft); margin-bottom: 6px; }
+  .footer-social { display: flex; gap: 14px; }
+  .footer-social a { font-weight: 600; }
+  .footer-bottom { max-width: 1120px; margin: 28px auto 0; padding-top: 18px; border-top: 1px solid var(--line); font-size: 12.5px; color: var(--ink-soft); text-align: center; }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="header-inner">
+    <a href="#" class="logo">
+      <img src="https://scentralpark.in/wp-content/uploads/2024/12/logo-web-scp-500-1.png" alt="The Scentral Park" style="height:34px;width:auto;">
+    </a>
+    <nav>
+      <a href="#">Sensory garden</a>
+      <a href="#">Puppy play date</a>
+      <a href="#">Boarding</a>
+      <a href="#">Grooming</a>
+      <a href="#">Locations</a>
+      <span class="grp">About</span>
+      <span class="grp">More</span>
+    </nav>
+    <div class="header-cta-group">
+      <div class="header-social">
+        <a href="https://www.instagram.com/thescentralpark/" target="_blank" rel="noopener" aria-label="Instagram">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1"/></svg>
+        </a>
+        <a href="https://www.facebook.com/profile.php?id=61556131220568" target="_blank" rel="noopener" aria-label="Facebook">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M15 8h-2a2 2 0 0 0-2 2v10M8 13h5"/><circle cx="12" cy="12" r="9"/></svg>
+        </a>
+        <a href="http://www.youtube.com/@thescentralpark" target="_blank" rel="noopener" aria-label="YouTube">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="2" y="6" width="20" height="12" rx="3"/><path d="M10 9l5 3-5 3z" fill="currentColor" stroke="none"/></svg>
+        </a>
+      </div>
+      <a href="#" class="btn btn-primary" style="padding:9px 18px;font-size:13.5px;">Get the app</a>
+    </div>
+  </div>
+</header>
+
+<section class="hero">
+  <video src="assets/video/hero.mp4" autoplay muted loop playsinline></video>
+  <div class="hero-scrim"></div>
+  <div class="hero-content">
+    <span class="eyebrow" style="color:var(--sand);">Devanahalli, Bengaluru</span>
+    <h1>A garden built for a dog's nose, not a human's eye.</h1>
+    <p>Mud, water, sand and scent trails set in a working tree park. Booking is app-only — download once, book every visit in seconds.</p>
+    <div class="hero-actions">
+      <a href="#" class="btn btn-primary" style="background:var(--bg);color:var(--ink);">Get the app →</a>
+      <a href="#" class="btn btn-outline" style="border-color:var(--bg);color:var(--bg);">See the garden</a>
+    </div>
+    <div class="avatar-row">
+      <div class="avatar-item">
+        <div class="avatar-photo"><img src="assets/img/sensory-garden-hero.jpg" alt="Sensory garden"></div>
+        <p>Mud, water and sand — three zones to explore</p>
+      </div>
+      <div class="avatar-item">
+        <div class="avatar-photo"><img src="assets/img/puppies-grass-1.jpg" alt="Puppy play date"></div>
+        <p>Puppy Play Date — every 3rd Saturday</p>
+      </div>
+      <div class="avatar-item">
+        <div class="avatar-photo"><img src="assets/img/boarding-1.jpg" alt="Boarding"></div>
+        <p>Boarding from ₹1,000/night</p>
+      </div>
+      <div class="avatar-item">
+        <div class="avatar-photo"><img src="https://images.pexels.com/photos/6816837/pexels-photo-6816837.jpeg?cs=srgb&fm=jpg" alt="Grooming"></div>
+        <p>Freshly groomed and ready to go</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="hiw">
+  <div class="hiw-inner">
+    <div class="hiw-step"><div class="num">1</div><h3>Download the app</h3><p>One-time setup, available on iOS and Android</p></div>
+    <div class="hiw-step"><div class="num">2</div><h3>Book a slot</h3><p>Pick a service, date and time in seconds</p></div>
+    <div class="hiw-step"><div class="num">3</div><h3>Visit and play</h3><p>Show your booking at the gate — that's it</p></div>
+  </div>
+</section>
+
+<section class="statement">
+  <video src="assets/video/water-zone.mp4" autoplay muted loop playsinline></video>
+  <div class="scrim"></div>
+  <div class="txt">
+    <h2>For the dogs who deserve more than a walk around the block.</h2>
+  </div>
+</section>
+
+<section class="feature">
+  <div class="feature-inner wrap">
+    <div>
+      <span class="eyebrow" style="color:var(--water);">The crown jewel</span>
+      <h2>A garden built on canine science</h2>
+      <p>A scientifically designed sensory garden — mud, water, sand and scent trails that stimulate a dog's senses and encourage exploration, supervised and safe.</p>
+    </div>
+    <div class="feature-media">
+      <video src="assets/video/water-pool.mp4" autoplay muted loop playsinline></video>
+    </div>
+  </div>
+</section>
+
+<section class="feature">
+  <div class="feature-inner reverse wrap">
+    <div>
+      <span class="eyebrow" style="color:var(--mud);">In good hands</span>
+      <h2>Every visit, cared for</h2>
+      <p>Overnight boarding from ₹1,000–₹1,650 a night, with indoor suites that open onto a private front and back yard, outdoor play areas, and 24/7 supervision. Daycare runs ₹750–₹1,250 a day.</p>
+    </div>
+    <div class="feature-media">
+      <video src="assets/video/boarding.mp4" autoplay muted loop playsinline></video>
+    </div>
+  </div>
+</section>
+
+<section class="zones">
+  <div class="zones-head">
+    <span class="eyebrow" style="color:var(--water);">Three zones, three instincts</span>
+    <h2>The sensory garden</h2>
+  </div>
+  <div class="zones-grid">
+    <div class="zone-card">
+      <div class="zone-media"><img src="assets/img/mound-play-1.jpg" alt="Mud zone"></div>
+      <div class="zone-body">
+        <h3>Mud bath</h3>
+        <p>A cool, mineral-rich pit dogs sink into to soothe skin and joints.</p>
+      </div>
+    </div>
+    <div class="zone-card">
+      <div class="zone-media"><video src="assets/video/water-pool.mp4" autoplay muted loop playsinline></video></div>
+      <div class="zone-body">
+        <h3>Waterhole</h3>
+        <p>A shallow natural pool for paddling, splashing and cooling off.</p>
+      </div>
+    </div>
+    <div class="zone-card">
+      <div class="zone-media"><img src="assets/img/park-equipment.jpg" alt="Sand zone"></div>
+      <div class="zone-body">
+        <h3>Sandpit</h3>
+        <p>Warm sand built for digging, rolling and chasing scent trails.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="statement" style="min-height:300px;">
+  <video src="assets/video/puppy-play-date.mp4" autoplay muted loop playsinline></video>
+  <div class="scrim"></div>
+  <div class="txt">
+    <span class="eyebrow" style="color:var(--sand);">Only here — every 3rd Saturday</span>
+    <h2>Puppy Play Date — for pups aged 4 to 7 months, ₹1,000, max 2 dogs a slot.</h2>
+  </div>
+</section>
+
+<section class="feature">
+  <div class="feature-inner wrap">
+    <div>
+      <span class="eyebrow" style="color:var(--sand);">Cafe at the park</span>
+      <h2>Wood-fired pizza, for both of you</h2>
+      <p>Neapolitan pizzas and sourdough bread from ₹650, with a dog-friendly version made on an oat-and-egg base with chicken or fish, ₹250. Pre-booking closes 5pm the day before.</p>
+    </div>
+    <div class="feature-media">
+      <img src="https://scentralpark.in/wp-content/uploads/2024/12/2024-03-23.jpg" alt="Wood-fired pizza at the Scentral Park cafe">
+    </div>
+  </div>
+</section>
+
+<section class="duo">
+  <div class="duo-head">
+    <span class="eyebrow" style="color:var(--mud);">Physical care</span>
+    <h2>Boarding and grooming</h2>
+  </div>
+  <div class="duo-grid">
+    <div class="duo-card">
+      <img src="assets/img/boarding-2.jpg" alt="Boarding">
+      <div class="duo-label">
+        <h3>Boarding</h3>
+        <p>Overnight stays in a natural setting</p>
+      </div>
+    </div>
+    <div class="duo-card">
+      <img src="https://images.pexels.com/photos/19145882/pexels-photo-19145882.jpeg?cs=srgb&fm=jpg" alt="Grooming">
+      <div class="duo-label">
+        <h3>Grooming</h3>
+        <p>Wash and groom before heading home</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="feature">
+  <div class="feature-inner reverse wrap">
+    <div>
+      <span class="eyebrow" style="color:var(--water);">Add-on service</span>
+      <h2>Birthday &amp; Gotcha Day packages</h2>
+      <p>₹2,499, booked as an add-on to an Exclusive or Shared session. A human-grade cake, a personalized goodie bag, a photobooth moment, and an eco-friendly setup — built around connection, not performance.</p>
+      <p style="font-size:13.5px;font-style:italic;margin-top:10px;">"We felt the intentionality that went behind the creation of the place" — Nilakshi, on Berrie's birthday</p>
+    </div>
+    <div class="feature-media">
+      <img src="assets/img/puppies-grass-1.jpg" alt="Celebration at Scentral Park">
+    </div>
+  </div>
+</section>
+
+<section class="gallery">
+  <div class="gallery-head">
+    <span class="eyebrow" style="color:var(--water);">Happy members</span>
+    <h2>From the garden</h2>
+  </div>
+  <div class="gallery-grid">
+    <img src="assets/img/portrait-1.jpg" alt="Dog at Scentral Park">
+    <img src="assets/img/portrait-2.jpg" alt="Dog at Scentral Park">
+    <img src="assets/img/mound-play-3.jpg" alt="Dogs at Scentral Park">
+    <img src="assets/img/park-path-2.jpg" alt="Scentral Park pathway">
+    <img src="assets/img/shaded-area.jpg" alt="Scentral Park shaded area">
+    <img src="assets/img/shelter.jpg" alt="Scentral Park shelter">
+  </div>
+</section>
+
+<section class="whyus">
+  <img src="assets/img/park-path.jpg" alt="Scentral Park pathway">
+  <div class="scrim"></div>
+  <div class="whyus-content">
+    <span class="eyebrow">Why The Scentral Park</span>
+    <h2>Founded in 2024, by dog people.</h2>
+    <p>Started by a small group of dog lovers who wanted a space where dogs could engage every sense while their humans got peace of mind. Slots stay limited on purpose — ambitious, not greedy — so every dog gets room to actually be a dog.</p>
+    <p class="sign">Srividya Gokhle, Co-founder &amp; CEO — Devisri Sarkar, Co-founder, COO &amp; Canine Behaviorist</p>
+  </div>
+</section>
+
+<section class="testimonials">
+  <div class="testimonials-inner">
+    <span class="eyebrow" style="color:var(--water);">What clients say</span>
+    <h2 style="font-size:clamp(24px,3vw,32px);">From real pet parents</h2>
+    <div class="testimonials-grid">
+      <div class="t-card">
+        <p class="quote">"They accommodate only a limited number of dogs in each slot — a beautiful concept."</p>
+        <p class="name">Shalini Ramesh</p>
+      </div>
+      <div class="t-card">
+        <p class="quote">Called it more of a therapy for dogs than just an outing, with the pool, logs and fresh grass built for their senses.</p>
+        <p class="name">Ashish Pradhan</p>
+      </div>
+      <div class="t-card">
+        <p class="quote">Her 12-year-old golden retriever got to enjoy both water bodies, with the park built for senior dogs too.</p>
+        <p class="name">Samira Abraham</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="faq">
+  <div class="faq-inner">
+    <span class="eyebrow" style="color:var(--mud);">Before you visit</span>
+    <h2 style="font-size:clamp(24px,3vw,32px);margin-bottom:8px;">Common questions</h2>
+    <details class="faq-item" open>
+      <summary>Do I need to book through the app?</summary>
+      <p>Yes — booking is exclusively through The Scentral Park app. It's the only way to reserve a slot for the sensory garden, boarding, grooming or a puppy play date.</p>
+    </details>
+    <details class="faq-item">
+      <summary>Do I need to stay with my dog during a visit?</summary>
+      <p>Yes, one human companion is required in the sensory garden for the full slot.</p>
+    </details>
+    <details class="faq-item">
+      <summary>What is a sensory garden?</summary>
+      <p>A scientifically designed space with water, sand, wood and plant textures that stimulate a dog's senses and support wellbeing.</p>
+    </details>
+  </div>
+</section>
+
+<div class="trust">
+  <div class="trust-inner">
+    <span><span class="dot"></span>Rooted in canine behaviour science</span>
+    <span><span class="dot"></span>Supervised, natural, off-leash play</span>
+    <span><span class="dot"></span>Booking and entry, entirely on the app</span>
+  </div>
+</div>
+
+<div class="loc-teaser">
+  <div>
+    <h3>One park today, many by 2035</h3>
+    <p>Find our current location, or see where we're opening next.</p>
+  </div>
+  <a href="#" class="btn" style="background:var(--bg);color:var(--ink);">View locations →</a>
+</div>
+
+<section class="closing wrap">
+  <div class="closing-photos">
+    <img src="assets/img/portrait-1.jpg" alt="">
+    <img src="assets/img/portrait-2.jpg" alt="">
+    <img src="assets/img/mound-play-2.jpg" alt="">
+    <img src="assets/img/puppies-grass-2.jpg" alt="">
+    <img src="assets/img/boarding-3.jpg" alt="">
+  </div>
+  <h2>Your dog's next favourite place.</h2>
+  <p>Booking is exclusively on the app — download once, book every visit in seconds.</p>
+  <a href="#" class="btn btn-primary">Get the app →</a>
+</section>
+
+<footer>
+  <div class="footer-inner">
+    <div>
+      <div class="logo">
+        <img src="https://scentralpark.in/wp-content/uploads/2024/12/logo-web-scp-500-1.png" alt="The Scentral Park" style="height:30px;width:auto;">
+      </div>
+      <span style="font-size:13px;color:var(--ink-soft);max-width:220px;display:block;margin-top:8px;">Devanahalli, Bengaluru</span>
+    </div>
+    <div class="footer-col">
+      <h4>Contact</h4>
+      <a href="tel:+919740004842">+91 97400 04842</a>
+      <a href="mailto:info@scentralpark.in">info@scentralpark.in</a>
+      <span>Sat &amp; Sun: 6:30am – 6pm</span>
+      <span>Mon–Fri: 8am – 6pm</span>
+    </div>
+    <div class="footer-col">
+      <h4>Follow</h4>
+      <div class="footer-social">
+        <a href="https://www.instagram.com/thescentralpark/" target="_blank" rel="noopener">Instagram</a>
+        <a href="https://www.facebook.com/profile.php?id=61556131220568" target="_blank" rel="noopener">Facebook</a>
+        <a href="http://www.youtube.com/@thescentralpark" target="_blank" rel="noopener">YouTube</a>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    © 2026 The Scentral Park &nbsp;·&nbsp;
+    <a href="#" style="display:inline;">About Us</a> ·
+    <a href="#" style="display:inline;">Cancellation &amp; Refunds</a> ·
+    <a href="#" style="display:inline;">Health &amp; Safety Disclaimer</a> ·
+    <a href="#" style="display:inline;">Driver Safety Disclaimer</a> ·
+    <a href="#" style="display:inline;">e-Permits</a> ·
+    <a href="#" style="display:inline;">Privacy Policy</a> ·
+    <a href="#" style="display:inline;">Terms &amp; Conditions</a>
+  </div>
+</footer>
+
+</body>
+</html>
