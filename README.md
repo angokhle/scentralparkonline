@@ -66,6 +66,10 @@ All eight pages are built and cross-linked — this is a complete site, not a si
 
 The `assets/video` folder is ~7MB and `assets/img` is ~1.5MB — fine for git, but if you keep adding real video footage, consider [Git LFS](https://git-lfs.com/) once the repo starts growing past a few hundred MB, so clones stay fast.
 
+## Versioning
+
+Every page's footer shows a version number (`v2026.07.001`), format `YYYY.MM.NNN`. Bump the last segment on each meaningful deploy (new page, content fix, real bug fix) — not on every tiny tweak. Roll to a new month segment (e.g. `2026.08.001`) whenever you deploy in a new calendar month, resetting the counter. Update it in the footer of all eight pages together, since they should always agree.
+
 ## Local preview
 
 No server needed — just open `index.html` directly in a browser. If you want it served properly (some browsers restrict video autoplay differently over `file://`), run from inside this folder:
