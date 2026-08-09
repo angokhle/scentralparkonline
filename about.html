@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>About — The Scentral Park</title>
+<meta name="description" content="Founded in 2024, The Scentral Park was built by dog lovers to give dogs a space to engage every sense. Meet the team behind it.">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@500;600&family=Work+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/main.css">
+<style>
+  .team-grid { max-width: 760px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 24px; }
+  .team-card { text-align: center; }
+  .team-photo { width: 130px; height: 130px; border-radius: 50%; overflow: hidden; margin: 0 auto 14px; }
+  .team-photo img { width: 100%; height: 100%; object-fit: cover; }
+  .team-card h3 { font-size: 16px; margin-bottom: 4px; }
+  .team-card p.title { font-size: 12.5px; color: var(--ink-soft); margin-bottom: 8px; }
+  .team-card a.social { font-size: 12px; color: var(--water); font-weight: 600; }
+  @media (max-width: 700px) { .team-grid { grid-template-columns: 1fr 1fr; max-width: 480px; } }
+  @media (max-width: 480px) { .team-grid { grid-template-columns: 1fr; max-width: 260px; } }
+  .t-card-photo { display: flex; align-items: center; gap: 10px; margin-bottom: 10px; }
+  .t-card-photo img { width: 36px; height: 36px; border-radius: 50%; object-fit: cover; }
+
+  .story-section { padding: 64px 24px; }
+  .story-inner { max-width: 680px; margin: 0 auto; }
+  .story-quote { font-family: 'Fraunces', serif; font-weight: 600; font-style: italic; font-size: clamp(24px,3.2vw,32px); color: var(--ink); line-height: 1.3; margin-bottom: 6px; }
+  .story-quote + p.lede { font-size: 14px; color: var(--mud); font-weight: 600; margin-bottom: 24px; }
+  .story-inner p { font-size: 15px; color: var(--ink-soft); line-height: 1.75; margin-bottom: 18px; }
+  .story-inner h2.sub { font-size: clamp(20px,2.4vw,26px); margin: 36px 0 16px; color: var(--ink); }
+  .story-sniff { font-style: italic; color: var(--mud); font-weight: 600; }
+  .story-close { text-align: center; font-family: 'Fraunces', serif; font-weight: 600; font-size: 18px; color: var(--ink); margin-top: 28px; }
+</style>
+</head>
+<body>
+
+<div class="header-utility">
+  <div class="header-utility-inner">
+    <div class="header-utility-left">
+      <a href="tel:+919740004842"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg> Call @ +91 97400 04842</a>
+      <a href="mailto:info@scentralpark.in"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16v16H4z" opacity="0"/><path d="M22 6c0-1.1-.9-2-2-2H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6zm-2 0-8 5-8-5"/></svg> info@scentralpark.in</a>
+    </div>
+    <div class="header-utility-right">
+      <a href="https://www.instagram.com/thescentralpark/" target="_blank" rel="noopener" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1"/></svg></a>
+      <a href="https://www.facebook.com/profile.php?id=61556131220568" target="_blank" rel="noopener" aria-label="Facebook"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M15 8h-2a2 2 0 0 0-2 2v10M8 13h5"/><circle cx="12" cy="12" r="9"/></svg></a>
+      <a href="http://www.youtube.com/@thescentralpark" target="_blank" rel="noopener" aria-label="YouTube"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="2" y="6" width="20" height="12" rx="3"/><path d="M10 9l5 3-5 3z" fill="currentColor" stroke="none"/></svg></a>
+    </div>
+  </div>
+</div>
+<header>
+  <div class="header-inner">
+    <a href="index.html" class="logo">
+      <img src="assets/img/logo.png" alt="The Scentral Park" style="height:34px;width:auto;">
+    </a>
+    <nav>
+      <a href="sensory-garden.html">Sensory garden</a>
+      <a href="puppy-play-date.html">Puppy play date</a>
+      <a href="boarding.html">Boarding</a>
+      <a href="grooming.html">Grooming</a>
+      <a href="locations.html">Locations</a>
+      <a href="about.html" class="grp nav-active" style="text-decoration:none;">About</a>
+      <a href="cafe.html" class="grp" style="text-decoration:none;">More</a>
+    </nav>
+    <div class="header-cta-group">
+      <div class="header-social">
+        <a href="https://www.instagram.com/thescentralpark/" target="_blank" rel="noopener" aria-label="Instagram">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1"/></svg>
+        </a>
+        <a href="https://www.facebook.com/profile.php?id=61556131220568" target="_blank" rel="noopener" aria-label="Facebook">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M15 8h-2a2 2 0 0 0-2 2v10M8 13h5"/><circle cx="12" cy="12" r="9"/></svg>
+        </a>
+        <a href="http://www.youtube.com/@thescentralpark" target="_blank" rel="noopener" aria-label="YouTube">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="2" y="6" width="20" height="12" rx="3"/><path d="M10 9l5 3-5 3z" fill="currentColor" stroke="none"/></svg>
+        </a>
+      </div>
+      <a href="#" class="btn btn-primary" style="padding:9px 18px;font-size:13.5px;">Get the app</a>
+      <button class="mobile-toggle" onclick="document.getElementById('mmenu').classList.toggle('open')" aria-label="Toggle menu">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+      </button>
+    </div>
+  </div>
+  <div class="mobile-menu" id="mmenu">
+    <div class="mobile-menu-top">
+      <img src="assets/img/logo.png" alt="The Scentral Park">
+      <button class="mobile-menu-close" onclick="document.getElementById('mmenu').classList.remove('open')" aria-label="Close menu">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="4" y1="4" x2="20" y2="20"/><line x1="20" y1="4" x2="4" y2="20"/></svg>
+      </button>
+    </div>
+    <a href="sensory-garden.html">Sensory garden</a>
+    <a href="puppy-play-date.html">Puppy play date</a>
+    <a href="boarding.html">Boarding</a>
+    <a href="grooming.html">Grooming</a>
+    <a href="locations.html">Locations</a>
+    <a href="about.html" class="nav-active">About</a>
+    <a href="cafe.html">More</a>
+    <a href="#" class="btn btn-primary">Get the app</a>
+    <div class="mobile-menu-social">
+      <a href="https://www.instagram.com/thescentralpark/" target="_blank" rel="noopener" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1"/></svg></a>
+      <a href="https://www.facebook.com/profile.php?id=61556131220568" target="_blank" rel="noopener" aria-label="Facebook"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M15 8h-2a2 2 0 0 0-2 2v10M8 13h5"/><circle cx="12" cy="12" r="9"/></svg></a>
+      <a href="http://www.youtube.com/@thescentralpark" target="_blank" rel="noopener" aria-label="YouTube"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="2" y="6" width="20" height="12" rx="3"/><path d="M10 9l5 3-5 3z" fill="currentColor" stroke="none"/></svg></a>
+    </div>
+  </div>
+</header>
+
+<section class="page-hero">
+  <img src="assets/img/park-path.jpg" alt="The Scentral Park grounds">
+  <div class="scrim"></div>
+  <div class="page-hero-content">
+    <span class="eyebrow" style="color:var(--sand);">The park's journey</span>
+    <h1>Founded in 2024, by dog people.</h1>
+    <p>Born from a simple idea — a space where dogs could engage every sense while their humans got real peace of mind.</p>
+  </div>
+</section>
+
+<section class="feature">
+  <div class="feature-inner wrap">
+    <div>
+      <span class="eyebrow" style="color:var(--water);">Purpose &amp; goals</span>
+      <h2>Why we started</h2>
+      <p>What began as a small, local dog park has grown into a full canine center. Along the way, the goals stayed the same:</p>
+      <ul style="margin-top:14px;padding-left:18px;color:var(--ink-soft);font-size:14.5px;line-height:1.8;">
+        <li>Foster a safe, stimulating environment for dogs to explore and learn</li>
+        <li>Provide a supportive community for dog owners</li>
+        <li>Promote canine wellbeing through thoughtful services and facilities</li>
+        <li>Educate pet parents on why sensory experience matters</li>
+      </ul>
+    </div>
+    <div class="feature-media">
+      <img src="assets/img/sensory-garden-hero.jpg" alt="Dog at The Scentral Park">
+    </div>
+  </div>
+</section>
+
+<section class="zones">
+  <div class="zones-head">
+    <span class="eyebrow" style="color:var(--mud);">Scientifically designed for dogs</span>
+    <h2>Why choose The Scentral Park</h2>
+  </div>
+  <div class="zones-grid">
+    <div class="zone-card">
+      <div class="zone-media"><img src="assets/img/mound-play-2.jpg" alt="Safety at The Scentral Park"></div>
+      <div class="zone-body">
+        <h3>Built with safety first</h3>
+        <p>Fully fenced, supervised, unleashed bliss for every dog that visits.</p>
+      </div>
+    </div>
+    <div class="zone-card">
+      <div class="zone-media"><img src="assets/img/portrait-1.jpg" alt="Small groups at The Scentral Park"></div>
+      <div class="zone-body">
+        <h3>Ambitious, not greedy</h3>
+        <p>Dogs per slot stay deliberately limited — quality over crowd.</p>
+      </div>
+    </div>
+    <div class="zone-card">
+      <div class="zone-media"><img src="assets/img/portrait-2.jpg" alt="Happy dog at The Scentral Park"></div>
+      <div class="zone-body">
+        <h3>98% happy pet parents</h3>
+        <p>A satisfaction guarantee for you and your pooch.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="testimonials">
+  <div class="testimonials-inner">
+    <span class="eyebrow" style="color:var(--water);">What they're saying</span>
+    <h2 style="font-size:clamp(24px,3vw,32px);">Real visits, real reviews</h2>
+    <div class="testimonials-grid">
+      <div class="t-card">
+        <div class="t-card-photo">
+          <img src="https://scentralpark.in/wp-content/uploads/2024/12/shalini-petpic-482x391.jpg" alt="Shalini Ramesh">
+          <p class="name" style="margin:0;">Shalini Ramesh</p>
+        </div>
+        <p class="quote">Loves that it's fully fenced and leash-free, and that they only accommodate a limited number of dogs per slot — "a beautiful concept" compared to the chaos of city dog parks.</p>
+      </div>
+      <div class="t-card">
+        <div class="t-card-photo">
+          <img src="https://scentralpark.in/wp-content/uploads/2024/12/ashish-pic-482x391.jpg" alt="Ashish Pradhan">
+          <p class="name" style="margin:0;">Ashish Pradhan</p>
+        </div>
+        <p class="quote">Calls it more therapy than outing — the pool, natural tree logs, and fresh grass let dogs engage senses that apartment living usually leaves dormant.</p>
+      </div>
+      <div class="t-card">
+        <div class="t-card-photo">
+          <img src="https://scentralpark.in/wp-content/uploads/2024/12/samira-abraham-482x391.jpg" alt="Samira Abraham">
+          <p class="name" style="margin:0;">Samira Abraham</p>
+        </div>
+        <p class="quote">Her 12-year-old golden retriever got to enjoy both water bodies — glimpses of her puppy self again, with the park clearly built with senior dogs in mind too.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="story-section">
+  <div class="story-inner">
+    <p class="story-quote">"This is a dog's place. Humans are welcome."</p>
+    <p class="lede">It's how we live.</p>
+
+    <p>Between us, Vidya and Anand share our home with six dogs, and we look after two more who live with us on the farm. Every wagging tail, every muddy paw print, every 6 AM wake-up call has taught us something about what dogs actually need to feel safe, happy, and free. Scentral Park was born from our slightly obsessive love for dogs.</p>
+
+    <p>By day, we're both in IT, juggling day jobs like everyone else. We put our free time and the money into this — because we believe dogs deserve a place that's actually built around them.</p>
+
+    <p>Along the way, we needed someone who could turn passion into daily reality — someone to actually run the place, day in and day out. That's Devisri, a canine behaviorist for a decade now and our Managing Partner.</p>
+
+    <p>Devisri didn't just come in to manage operations. She came in with ideas and a vision for what a sensory garden could be — how dogs could explore, sniff, and experience the space in ways that mattered to them.</p>
+
+    <h2 class="sub">Why "Scentral Park"?</h2>
+    <p>Say it out loud. Go on. <span class="story-sniff">"Scent"ral Park.</span></p>
+
+    <p>That's the whole secret, hiding in plain sight — because for a dog, scent is the world. It's how they read a room, remember a friend, fall in love with a patch of grass for absolutely no reason a human will ever understand. We didn't want a park that just looked good. We wanted one that smelled like an adventure, sniff by sniff, corner by corner. So the name had to carry that in it — not just a park, a scentral park.</p>
+
+    <p>And there's a little wink to Central Perk in there too. That scruffy, sofa-shaped coffee house where everybody just... showed up. Just friends being friends. That's the feeling we wanted Scentral Park to have — except swap the coffee mugs for water bowls, and the sofa for a sunny patch of grass or sand. A place where dogs come together the way old friends do. Where tails do the talking. Where "how YOU doin'?" is just a good long sniff hello.</p>
+
+    <p>So really, Scentral Park is two ideas wearing one name: a park built entirely around scent — the sense dogs live and love by — and a gathering place built entirely around friendship, the way dogs (and honestly, their humans too) do it best.</p>
+
+    <p class="story-close">Come for the nose. Stay for the pack.</p>
+  </div>
+</section>
+
+<section class="feature">
+  <div class="feature-inner wrap">
+    <div style="text-align:center;max-width:640px;margin:0 auto;">
+      <span class="eyebrow" style="color:var(--mud);">The team</span>
+      <h2>Meet the founders</h2>
+      <p style="margin:0 auto;">Certified, expert, and dog-obsessed — every part of the park is shaped by people who actually love this work.</p>
+    </div>
+  </div>
+  <div class="team-grid" style="margin-top:36px;">
+    <div class="team-card">
+      <div class="team-photo"><img src="https://scentralpark.in/wp-content/uploads/2024/12/vidya-wdog2.jpg" alt="Srividya Gokhle"></div>
+      <h3>Srividya Gokhle</h3>
+      <p class="title">Co-founder, CEO</p>
+      <a class="social" href="https://in.linkedin.com/in/vidya-gokhle-02820345" target="_blank" rel="noopener">LinkedIn →</a>
+    </div>
+    <div class="team-card">
+      <div class="team-photo"><img src="assets/img/ananda-gokhle.jpg" alt="Ananda Gokhle"></div>
+      <h3>Ananda Gokhle</h3>
+      <p class="title">Co-founder &amp; COO</p>
+    </div>
+    <div class="team-card">
+      <div class="team-photo"><img src="https://scentralpark.in/wp-content/uploads/2024/12/devisrisarkar.jpg" alt="Devisri Sarkar"></div>
+      <h3>Devisri Sarkar</h3>
+      <p class="title">Managing Partner &amp; Canine Behaviorist</p>
+      <a class="social" href="https://in.linkedin.com/in/devisri" target="_blank" rel="noopener">LinkedIn →</a>
+    </div>
+  </div>
+</section>
+
+<section class="faq">
+  <div class="faq-inner">
+    <span class="eyebrow" style="color:var(--mud);">Common questions</span>
+    <h2 style="font-size:clamp(24px,3vw,32px);margin-bottom:8px;">About the park</h2>
+    <details class="faq-item" open>
+      <summary>What services does the park offer overall?</summary>
+      <p>Boarding, the sensory garden, a workspace, dog socialization programs, behaviour consultation, and rehabilitation services.</p>
+    </details>
+    <details class="faq-item">
+      <summary>Can I visit for the day without boarding?</summary>
+      <p>Yes — day visits let your dog enjoy the facilities and socialization programs without an overnight stay.</p>
+    </details>
+    <details class="faq-item">
+      <summary>What does behaviour consultation include?</summary>
+      <p>Working one-on-one with a professional to address specific behavioural issues, with strategies and training techniques tailored to your dog.</p>
+    </details>
+  </div>
+</section>
+
+<div class="trust">
+  <div class="trust-inner">
+    <span><span class="dot"></span>Founded 2024, by dog lovers</span>
+    <span><span class="dot"></span>Rooted in canine behaviour science</span>
+    <span><span class="dot"></span>98% happy pet parents</span>
+  </div>
+</div>
+
+<section class="closing wrap">
+  <h2>Come see it for yourself.</h2>
+  <p>Booking is exclusively on the app — pick a session and meet the team in person.</p>
+  <a href="#" class="btn btn-primary">Get the app →</a>
+</section>
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-brand-col">
+      <div class="logo">
+        <img src="assets/img/logo.png" alt="The Scentral Park" style="height:30px;width:auto;">
+      </div>
+      <p class="tagline">Rooted in science and created with a lot of care and with an in-depth understanding of dog behaviour, we take pride in offering an experience that is unique and dog centric.</p>
+      <div class="footer-social">
+        <a href="https://www.instagram.com/thescentralpark/" target="_blank" rel="noopener">Instagram</a>
+        <a href="https://www.facebook.com/profile.php?id=61556131220568" target="_blank" rel="noopener">Facebook</a>
+        <a href="http://www.youtube.com/@thescentralpark" target="_blank" rel="noopener">YouTube</a>
+      </div>
+    </div>
+    <div class="footer-col">
+      <h4>Links</h4>
+      <a href="index.html">Home</a>
+      <a href="about.html">About Us</a>
+      <a href="cancellation-refunds.html">Cancellation-Refunds</a>
+      <a href="health-safety-disclaimer.html">Health &amp; Safety Disclaimer</a>
+      <a href="driver-safety-disclaimer.html">Driver Safety Disclaimer</a>
+      <a href="e-permits.html">e-Permits</a>
+    </div>
+    <div class="footer-col">
+      <h4>Gallery</h4>
+      <div class="footer-gallery">
+        <img src="assets/img/sensory-garden-hero.jpg" alt="">
+        <img src="assets/img/mound-play-1.jpg" alt="">
+        <img src="assets/img/puppies-grass-1.jpg" alt="">
+        <img src="assets/img/boarding-2.jpg" alt="">
+        <img src="assets/img/portrait-1.jpg" alt="">
+        <img src="assets/img/park-path.jpg" alt="">
+      </div>
+    </div>
+    <div class="footer-col">
+      <h4>Contact</h4>
+      <a href="tel:+919740004842">+91 97400 04842</a>
+      <a href="mailto:info@scentralpark.in">info@scentralpark.in</a>
+      <span>Sat &amp; Sun: 6:30am – 6:30pm</span>
+      <span>Tue, Wed, Thu: 8am – 6pm</span>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    © 2026 The Scentral Park &nbsp;·&nbsp;
+    <a href="privacy-policy.html">Privacy Policy</a> ·
+    <a href="terms-conditions.html">Terms &amp; Conditions</a>
+    <span style="display:inline;opacity:.6;"> · v2026.07.001</span>
+  </div>
+</footer>
+
+</body>
+</html>
