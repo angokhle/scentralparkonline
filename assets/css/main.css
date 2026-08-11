@@ -15,16 +15,6 @@
   .btn-primary { background: var(--fill); color: var(--bg); }
   .btn-outline { border: 1.5px solid var(--ink); color: var(--ink); }
 
-  .header-utility { background: #5C2E0E; padding: 7px 24px; }
-  .header-utility-inner { max-width: 1120px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; gap: 16px; }
-  .header-utility a { color: #E6D8C3; font-size: 12.5px; text-decoration: none; display: inline-flex; align-items: center; gap: 5px; }
-  .header-utility a:hover { color: var(--bg); }
-  .header-utility svg { width: 13px; height: 13px; flex-shrink: 0; }
-  .header-utility-left { display: flex; gap: 20px; }
-  .header-utility-right { display: flex; align-items: center; gap: 14px; }
-  @media (max-width: 700px) { .header-utility-left a:nth-child(2) { display: none; } }
-  @media (max-width: 480px) { .header-utility { display: none; } }
-
   header { position: sticky; top: 0; z-index: 50; background: rgba(241,238,223,.96); backdrop-filter: blur(6px); border-bottom: 1px solid var(--line); }
   .header-inner { max-width: 1120px; margin: 0 auto; box-sizing: border-box; display: flex; align-items: center; justify-content: space-between; padding: 14px 24px; gap: 16px; flex-wrap: wrap; }
   .logo { display: flex; align-items: center; gap: 8px; }
